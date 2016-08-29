@@ -36,41 +36,42 @@
 * Shop title
   * Our first use of Liquid templating
     * ```<h1><a href="/">{{ shop.name }}</a></h1>
-<img src="{{'logo.svg' | asset_url}}" class="logo" alt="pineapple">```
-Bringing in an image with the asset_url
+  * Bringing in an image with the asset_url
+  * ```<img src="{{'logo.svg' | asset_url}}" class="logo" alt="pineapple">```
 * Main Menu  
-Linklist for main menu
-Go to online store/navigation, you’ll see menus.
-Click edit on the menu to find out the handle
-<ul>
-	{% for link in linklists.main-menu.links %}
-	 <li {% if link.active %}class="current"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
-	{% endfor %}
-    {{ content_for_layout}}
-  </ul>
-Linklist for footer menu
-<footer>
-<ul>
-{% for link in linklists.footer.links %}
-<li {% if link.active %}class="current"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
-{% endfor %}
-</ul>
-</footer>
+  * Linklist for main menu
+    1. Go to online store/navigation, you’ll see menus.
+    2. Click edit on the menu to find out the handle
+    3. ```<ul>
+      {% for link in linklists.main-menu.links %}
+       <li {% if link.active %}class="current"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+        {{ content_for_layout}}
+      </ul>```
+  * Linklist for footer menu
+    ```<footer>
+    <ul>
+    {% for link in linklists.footer.links %}
+    <li {% if link.active %}class="current"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
+    {% endfor %}
+    </ul>
+    </footer>```
+
+  * shopify_asset_url
+    * Returns the URL of a global assets that are found on Shopify's servers. Globally-hosted assets include:
+      * option_selection.js
+      * api.jquery.js
+      * shopify_common.js,
+      * customer_area.js
+      * currencies.js
+      * Customer.css
 
 
 
-
-shopify_asset_url
-Returns the URL of a global assets that are found on Shopify's servers. Globally-hosted assets include:
-option_selection.js
-api.jquery.js
-shopify_common.js,
-customer_area.js
-currencies.js
-Customer.css
 
 ## Index.liquid
-In the homepage page of the in the shopify panel and the bottom of the page in the Search engine listing preview section, the ‘handle’ of the page is the last bit of the url
+  * In the homepage page of the in the shopify panel and the bottom of the page in the Search engine listing preview section, the ‘handle’ of the page is the last bit of the url
+  [](search-engine-preview.png)
 
 Front page
 Assign page {% assign page = pages.frontpage %}
