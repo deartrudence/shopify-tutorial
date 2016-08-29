@@ -49,10 +49,15 @@
 + ```{% if %}```
 + ```{% include %}``` 
 	* Inserts a snippet from the snippets folder of a theme.
+	* 
 	```{% include 'snippet-name' %}```
-	* You can also include variables to be used within the snippet
+
+	* You can also include variables to be used within the snippet.
+
 	```{% include 'snippet', first_var: 'books', second_var: 'videos' %}```
+
 	* The with parameter assigns a value to a variable inside a snippet that shares the same name as the snippet. If snippet is named 'fruit.liquid' you can use:
+	
 	```{% include 'fruit' with 'peach' %}```
 
 		* this will set the variable fruit inside the snippet to 'peach'.
