@@ -49,13 +49,15 @@
         {{ content_for_layout}}
       </ul>```
   * Linklist for footer menu
-    ```<footer>
+    ```
+    <footer>
     <ul>
     {% for link in linklists.footer.links %}
     <li {% if link.active %}class="current"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
     {% endfor %}
     </ul>
-    </footer>```
+    </footer>
+    ```
 
   * shopify_asset_url
     * Returns the URL of a global assets that are found on Shopify's servers. Globally-hosted assets include:
@@ -71,7 +73,7 @@
 
 ## Index.liquid
   * In the homepage page of the in the shopify panel and the bottom of the page in the Search engine listing preview section, the ‘handle’ of the page is the last bit of the url
-  [](../search-engine-preview.png)
+  [](images/search-engine-preview.png)
 
 Front page
 Assign page {% assign page = pages.frontpage %}
