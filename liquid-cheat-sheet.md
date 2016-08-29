@@ -44,8 +44,19 @@
 	- 3
 	```
 + ```{% for %}```
++ ```{% form %}```
+	* Shopify creates some helpers in order to make standard forms for your shop. Please see the *Forms* section for more detail.
 + ```{% if %}```
 + ```{% include %}``` 
+	* Inserts a snippet from the snippets folder of a theme.
+	```{% include 'snippet-name' %}```
+	* You can also include variables to be used within the snippet
+	```{% include 'snippet', first_var: 'books', second_var: 'videos' %}```
+	* The with parameter assigns a value to a variable inside a snippet that shares the same name as the snippet. If snippet is named 'fruit.liquid' you can use:
+	```{% include 'fruit' with 'peach' %}```
+
+		* this will set the variable fruit inside the snippet to 'peach'.
+
 + ```{% increment %}```
 	+ increment sets the variable to 0, then every time it is called after, it increments the variable by 1.  It works independently of variables created using the ```assign``` or ```capture``` keywords even if they have the same name.
 	
@@ -91,7 +102,7 @@
 Shopify creates some helpers in order to make standard forms for your shop.
 
 ```{% form 'name_of_shopify_form' %}```
-+ ***activate_customer_password***
++ **activate_customer_password**
 	* Generates a form for activating a customer account on the activate_account.liquid template.
 	```
 	{% for 'activate_customer_password %}
@@ -121,7 +132,7 @@ Shopify creates some helpers in order to make standard forms for your shop.
 	  ...
 	</form>
 	```
-+ contact
++ **contact**
 	* Generates a form for submitting an email through the Liquid contact form.
 	```
 	{% form 'contact' %}
@@ -136,7 +147,7 @@ Shopify creates some helpers in order to make standard forms for your shop.
 	  ...
 	</form>
 	```
-+ customer
++ **customer**
 	* Generates a form for creating a new customer without registering a new account. This form is useful for collecting customer information when you don't want customers to log in to your store, such as building a list of emails from a newsletter signup.
 
 	To generate a form that registers a customer account, use the create_customer form.
@@ -153,7 +164,7 @@ Shopify creates some helpers in order to make standard forms for your shop.
 	  ...
 	</form>
 	```
-+ create_customer
++ **create_customer**
 	* Generates a form for creating a new customer account on the register.liquid template.
 	```
 	{% form 'create_customer' %}
@@ -168,7 +179,7 @@ Shopify creates some helpers in order to make standard forms for your shop.
 	  ...
 	</form>
 	```
-+ customer_address
++ **customer_address**
 	* Generates a form for creating or editing customer account addresses on the addresses.liquid template. When creating a new address, include the parameter customer.new_address. When editing an existing address, include the parameter address.
 	```
 	{% form 'customer_address', customer.new_address %}
@@ -183,7 +194,7 @@ Shopify creates some helpers in order to make standard forms for your shop.
 	  ...
 	</form>
 	```
-+ customer_login
++ **customer_login**
 	* Generates a form for logging into Customer Accounts on the login.liquid template.
 	```
 	{% form 'customer_login' %}
@@ -198,7 +209,7 @@ Shopify creates some helpers in order to make standard forms for your shop.
 	  ...
 	</form>
 	```
-+ guest_login
++ **guest_login**
 	* Generates a form on the login.liquid template that directs customers back to their checkout session as a guest instead of logging in to an account.
 	```
 	{% form 'guest_login' %}
@@ -215,7 +226,7 @@ Shopify creates some helpers in order to make standard forms for your shop.
 	  <input type="hidden" name="checkout_url" value="https://checkout.shopify.com/store-id/checkouts/session-id?step=contact_information">
 	</form>
 	```
-+ recover_customer_password
++ **recover_customer_password**
 	* Generates a form for recovering a lost password on the login.liquid template.
 	```
 	{% form 'recover_customer_password' %}
@@ -230,7 +241,7 @@ Shopify creates some helpers in order to make standard forms for your shop.
 	  ...
 	</form>
 	```
-+ reset_customer_password
++ **reset_customer_password**
 	* Generates a form on the customers/reset_password.liquid template for a customer to reset their password.
 	```
 	{% form 'reset_customer_password' %}
@@ -247,7 +258,7 @@ Shopify creates some helpers in order to make standard forms for your shop.
 	  <input type="hidden" name="id" value="1080844568">
 	</form>
 	```
-+ storefront_password
++ **storefront_password**
 	* Generates a form on the password.liquid template for entering a password-protected storefront.
 	```
 	{% form 'storefront_password' %}
