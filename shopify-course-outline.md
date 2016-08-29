@@ -73,7 +73,7 @@
 
 ## Index.liquid
   * In the homepage page of the in the shopify panel and the bottom of the page in the Search engine listing preview section, the ‘handle’ of the page is the last bit of the url
-  [](images/search-engine-preview.png)
+  ![](images/search-engine-preview.png)
 
 Front page
 Assign page {% assign page = pages.frontpage %}
