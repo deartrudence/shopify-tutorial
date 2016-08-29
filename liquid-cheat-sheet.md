@@ -17,16 +17,7 @@
 
 ## Liquid Logic
 
-+ ```{% assign %}```
-	* Creates a new variable.
-	```
-	{% assign var-name = 'elephant' %}
-	{{ var-name }}
 
-	returns
-
-	elephant
-	```
 + ```{% comment %}```
 
 	* This tag allows you to put comments in your liquid code. 
@@ -45,40 +36,12 @@
 	     You're getting another color book
 	{% endcase %}
 	```
-+ ```{% cycle %}```
-+ ```{% capture %}```
-	* Captures the string inside of the opening and closing tags and assigns it to a variable. Variables created through {% capture %} are strings. This is very useful for capturing information that's being looped over.
-	```
-	{% capture item_list %}
-	  {% for item in cart.items %}
-	      {{ item.product.title }}
-	  {% endfor %}
-	{% endcapture %}
 
-	returns
 
-	item1 item2 item3
-	```
 
 	assuming those are the items in your cart.
-+ ```{% decrement %}```
-	* decrement sets the variable to 0, then every time it is called after, it decrements the variable by 1.  It works independently of variables created using the ```assign``` or ```capture``` keywords even if they have the same name.
-	```
-	{% increment counter %}
-	{% increment counter %}
-	{% increment counter %}
 
-	{{ counter }}
 
-	returns 
-
-	- 1
-	- 2
-	- 3
-
-	- 3
-	```
-+ ```{% for %}```
 + ```{% form %}```
 	* Shopify creates some helpers in order to make standard forms for your shop. Please see the *Forms* section for more detail.
 + ```{% if %}```
@@ -104,24 +67,7 @@
 
 		* this will set the variable fruit inside the snippet to 'peach'.
 
-+ ```{% increment %}```
-	+ increment sets the variable to 0, then every time it is called after, it increments the variable by 1.  It works independently of variables created using the ```assign``` or ```capture``` keywords even if they have the same name.
-	
-	```
-	{% increment counter %}
-	{% increment counter %}
-	{% increment counter %}
 
-	{{ counter }}
-
-	returns 
-
-	0
-	1
-	2
-	
-	2
-	```
 + ```{% raw %}```
 	* disable liquid processing engine using the raw tag.
 	```
@@ -138,12 +84,77 @@
 	  You are NOT buying the blue book!
 	{% endunless %}
 	```
-+ ```{% tablerow %}```
+### Variable tags
++ assign
+	* ```{% assign %}```
+		- Creates a new variable.
+		```
+		{% assign var-name = 'elephant' %}
+		{{ var-name }}
+
+		returns
+
+		elephant
+		```
++ capture
+	* ```{% capture %}```
+		- Captures the string inside of the opening and closing tags and assigns it to a variable. Variables created through {% capture %} are strings. This is very useful for capturing information that's being looped over.
+		```
+		{% capture item_list %}
+		  {% for item in cart.items %}
+		      {{ item.product.title }}
+		  {% endfor %}
+		{% endcapture %}
+
+		returns
+
+		item1 item2 item3
+		```
++ increment
+	* ```{% increment %}```
+		* increment sets the variable to 0, then every time it is called after, it increments the variable by 1.  It works independently of variables created using the ```assign``` or ```capture``` keywords even if they have the same name.
+		
+		```
+		{% increment counter %}
+		{% increment counter %}
+		{% increment counter %}
+
+		{{ counter }}
+
+		returns 
+
+		0
+		1
+		2
+		
+		2
+		```
++ decrement
+	* ```{% decrement %}```
+		- decrement sets the variable to 0, then every time it is called after, it decrements the variable by 1.  It works independently of variables created using the ```assign``` or ```capture``` keywords even if they have the same name.
+		```
+		{% increment counter %}
+		{% increment counter %}
+		{% increment counter %}
+
+		{{ counter }}
+
+		returns 
+
+		+ 1
+		+ 2
+		+ 3
+
+		+ 3
+		```
 
 ### Iteration tags
 + for
+	+ ```{% for %}```
 + cycle
+	+ ```{% cycle %}```
 + tablerow
+	+ ```{% tablerow %}```
 
 Control flow tags
 + if
@@ -158,11 +169,7 @@ Theme tags
 + paginate
 + raw
 
-Variable tags
-+ assign
-+ capture
-+ increment
-+ decrement
+
 
 
 ## Operators
