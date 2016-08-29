@@ -129,18 +129,110 @@
 		Blue Fish<br>
 		```
 	* pluralize
+		- Outputs the singular or plural version of a string based on the value of a number. The first parameter is the singular string and the second parameter is the plural string
+
+		```
+		4 {{ 4 | pluralize: 'item', 'items' }}
+		1 {{ 1 | pluralize: 'item', 'items' }}
+
+		returns
+
+		4 items
+		1 item
+		```
 	* prepend
+		- Prepends characters to a string.
+		```
+		{{ 'awesome' | prepend: 'this is ' }}
+
+		returns
+
+		this is awesome
+		```
 	* remove
+		- Removes all occurrences of a substring from a string.
+		```
+		{{ "Hello, world. Goodbye, world." | remove: "world" }}
+
+		returns
+
+		Hello, . Goodbye, .
+		```
 	* remove_first
+		- Removes only the first occurrence of a substring from a string.
+		```
+		{{ "Hello, world. Goodbye, world." | remove_first: "world" }}
+
+		returns
+
+		Hello, . Goodbye, world.
+		```
 	* replace
+		- Replaces all occurrences of a string with a substring.
+		```
+		{{ 'this is awesome' | replace: 'awesome', 'amazing' }}
+		```
 	* replace_first
+		- Replaces the first occurrence of a string with a substring.
+		```
+		{{ 'this is awesome and awesome' | replace: 'awesome', 'amazing' }}
+
+		returns
+
+		this is amazing and awesome
+		```
 	* slice
+		- The slice filter returns a substring, starting at the specified index. An optional second parameter can be passed to specify the length of the substring. If no second parameter is given, a substring of one character will be returned.
+		```
+		{{ "hello" | slice: 0 }}
+		{{ "hello" | slice: 1 }}
+		{{ "hello" | slice: 1, 3 }}
+
+		h			
+		e
+		ell
+		```
 	* split
+		- The split filter takes on a substring as a parameter. The substring is used as a delimiter to divide a string into an array. You can output different parts of an array using array filters.
+		```
+		{% assign words = "Hi, how are you today?" | split: ' ' %}
+
+		{% for word in words %}
+		{{ word }}
+		{% endfor %}
+
+		returns
+
+		Hi,
+		how
+		are
+		you
+		today?
+
+		```
 	* strip
+		- Strips tabs, spaces, and newlines (all whitespace) from the left and right side of a string.
+		```
+		{{ '   too many spaces      ' | strip }}
+		```
 	* lstrip
+		- Strips tabs, spaces, and newlines (all whitespace) from the left side of a string.
 	* rstrip
+		- Strips tabs, spaces, and newlines (all whitespace) from the right side of a string.
 	* strip_hmtl
+		- Strips all HTML tags from a string.
+		```
+		{{ "<h1>Hello</h1> World" | strip_html }}
+
+		returns
+
+		Hello World
+		```
 	* strip_newlines
+		- Removes any line breaks/newlines from a string.
+		```
+		{{ product.description | strip_newlines }}
+		```
 	* truncate
 	* truncatewords
 	* upcase
