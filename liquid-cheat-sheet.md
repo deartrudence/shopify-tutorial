@@ -82,6 +82,13 @@
 + ```{% form %}```
 	* Shopify creates some helpers in order to make standard forms for your shop. Please see the *Forms* section for more detail.
 + ```{% if %}```
+	* Acts as a standard if statement and executes a block of code only if a certain condition is met
+	```
+	{% if product.title == 'the blue book' %}
+	  You are buying the blue book!
+	{% endif %}
+	```
+	* Also can use ```{% elsif %}``` and ```{% else %}``` in conjunction with this statement.
 + ```{% include %}``` 
 	* Inserts a snippet from the snippets folder of a theme.
 
