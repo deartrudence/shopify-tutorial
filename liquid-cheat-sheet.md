@@ -2,16 +2,16 @@
 
 ## Template Variables
 
-	* Product
-	* Collection
-	* Cart
-	* Pages
-	* Linklist
-	* Blog
-	* Article
-	* Images
-	* Customers
-	* Shop
++ Product
++ Collection
++ Cart
++ Pages
++ Linklist
++ Blog
++ Article
++ Images
++ Customers
++ Shop
 
 ## Liquid Filters
 
