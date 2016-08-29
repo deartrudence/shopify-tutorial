@@ -140,14 +140,16 @@
 	```
 + ```{% tablerow %}```
 
-Iteration tags
+### Iteration tags
 + for
 + cycle
 + tablerow
+
 Control flow tags
 + if
 + unless
 + case
+
 Theme tags
 + comment
 + include
@@ -155,6 +157,7 @@ Theme tags
 + layout
 + paginate
 + raw
+
 Variable tags
 + assign
 + capture
