@@ -35,7 +35,7 @@
   * Added blue box so you can see container
 * Shop title
   * Our first use of Liquid templating
-    * ```<h1><a href="/">{{ shop.name }}</a></h1>
+    * ```<h1><a href="/">{{ shop.name }}</a></h1>```
   * Bringing in an image with the asset_url
   * ```<img src="{{'logo.svg' | asset_url}}" class="logo" alt="pineapple">```
 * Main Menu  
@@ -71,7 +71,7 @@
 
 ## Index.liquid
   * In the homepage page of the in the shopify panel and the bottom of the page in the Search engine listing preview section, the ‘handle’ of the page is the last bit of the url
-  [](search-engine-preview.png)
+  [](../search-engine-preview.png)
 
 Front page
 Assign page {% assign page = pages.frontpage %}
