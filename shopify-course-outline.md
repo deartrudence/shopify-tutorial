@@ -3,16 +3,16 @@
 [Visit GitHub!](www.github.com)
 
 ## The Setup
-Download starter theme
-Setup development store
-Setup Starter theme in development store
-Should just see ‘main page :)’
-This is found in the ‘templates/index.liquid’ file
-Setup Theme watch for local development
-Now add some words to the index.liquid file, save and see the changes in the store!
-Setup Compass for sass compilation
-Upload sample products
-Csv upload
+* Download starter theme
+* Setup development store
+* Setup Starter theme in development store
+* Should just see ‘main page :)’
+* This is found in the ‘templates/index.liquid’ file
+* Setup Theme watch for local development
+* Now add some words to the index.liquid file, save and see the changes in the store!
+* Setup Compass for sass compilation
+* Upload sample products
+* Csv upload
 
 ## The Layout - Theme.liquid
 Brief intro to Liquid
