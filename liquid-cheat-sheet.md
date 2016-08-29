@@ -18,72 +18,6 @@
 ## Liquid Logic
 
 
-+ ```{% comment %}```
-
-	* This tag allows you to put comments in your liquid code. 
-	```
-	{% comment %} This is a great comment {% endcomment %}
-	```
-+ ```{% case %}```
-	* Creates a switch statement to execute a particular block of code when a variable has a specified value. **case** initializes the switch statement, and **when** statements define the various conditions. The **else** statement is used as a catchall to execute if none of the conditions are met.
-	```
-	{% case product.title %}
-	  {% when 'The blue book' %}
-	     You're getting the blue book
-	  {% when 'The red book' %}
-	    You're getting the red book
-	  {% else %}
-	     You're getting another color book
-	{% endcase %}
-	```
-
-
-
-	assuming those are the items in your cart.
-
-
-+ ```{% form %}```
-	* Shopify creates some helpers in order to make standard forms for your shop. Please see the *Forms* section for more detail.
-+ ```{% if %}```
-	* Acts as a standard if statement and executes a block of code only if a certain condition is met
-	```
-	{% if product.title == 'the blue book' %}
-	  You are buying the blue book!
-	{% endif %}
-	```
-	* Also can use ```{% elsif %}``` and ```{% else %}``` in conjunction with this statement.
-+ ```{% include %}``` 
-	* Inserts a snippet from the snippets folder of a theme.
-
-	```{% include 'snippet-name' %}```
-
-	* You can also include variables to be used within the snippet.
-
-	```{% include 'snippet', first_var: 'books', second_var: 'videos' %}```
-
-	* The with parameter assigns a value to a variable inside a snippet that shares the same name as the snippet. If snippet is named 'fruit.liquid' you can use:
-
-	```{% include 'fruit' with 'peach' %}```
-
-		* this will set the variable fruit inside the snippet to 'peach'.
-
-
-+ ```{% raw %}```
-	* disable liquid processing engine using the raw tag.
-	```
-	{% raw %}{% assign var = 'this'%}{% endraw %}
-
-	returns
-
-	{% assign var = 'this'%}
-	```
-+ ```{% unless %}```
-	* Like if, but executes a block of code only if a certain condition is not met (ie. result is false).
-	```
-	{% unless product.title == 'the blue book' %}
-	  You are NOT buying the blue book!
-	{% endunless %}
-	```
 ### Variable tags
 + assign
 	* ```{% assign %}```
@@ -110,6 +44,7 @@
 
 		item1 item2 item3
 		```
+		assuming those are the items in your cart.
 + increment
 	* ```{% increment %}```
 		* increment sets the variable to 0, then every time it is called after, it increments the variable by 1.  It works independently of variables created using the ```assign``` or ```capture``` keywords even if they have the same name.
@@ -156,18 +91,77 @@
 + tablerow
 	+ ```{% tablerow %}```
 
-Control flow tags
-+ if
-+ unless
-+ case
 
-Theme tags
+### Control flow tags
++ if
+	* ```{% if %}```
+		- Acts as a standard if statement and executes a block of code only if a certain condition is met
+		```
+		{% if product.title == 'the blue book' %}
+		  You are buying the blue book!
+		{% endif %}
+		```
+		- Also can use ```{% elsif %}``` and ```{% else %}``` in conjunction with this statement.
++ unless
+	* ```{% unless %}```
+		- Like if, but executes a block of code only if a certain condition is not met (ie. result is false).
+		```
+		{% unless product.title == 'the blue book' %}
+		  You are NOT buying the blue book!
+		{% endunless %}
+		```
++ case
+	* ```{% case %}```
+		- Creates a switch statement to execute a particular block of code when a variable has a specified value. **case** initializes the switch statement, and **when** statements define the various conditions. The **else** statement is used as a catchall to execute if none of the conditions are met.
+		```
+		{% case product.title %}
+		  {% when 'The blue book' %}
+		     You're getting the blue book
+		  {% when 'The red book' %}
+		    You're getting the red book
+		  {% else %}
+		     You're getting another color book
+		{% endcase %}
+		```
+
+### Theme tags
 + comment
+	* ```{% comment %}```
+
+		- This tag allows you to put comments in your liquid code. 
+		```
+		{% comment %} This is a great comment {% endcomment %}
+		```
 + include
+	* ```{% include %}``` 
+		- Inserts a snippet from the snippets folder of a theme.
+
+		```{% include 'snippet-name' %}```
+
+		- You can also include variables to be used within the snippet.
+
+		```{% include 'snippet', first_var: 'books', second_var: 'videos' %}```
+
+		- The with parameter assigns a value to a variable inside a snippet that shares the same name as the snippet. If snippet is named 'fruit.liquid' you can use:
+
+		```{% include 'fruit' with 'peach' %}```
+
+			- this will set the variable fruit inside the snippet to 'peach'.
 + form
+	* ```{% form %}```
+		- Shopify creates some helpers in order to make standard forms for your shop. Please see the *Forms* section for more detail.
 + layout
 + paginate
 + raw
+	* ```{% raw %}```
+		- disable liquid processing engine using the raw tag.
+		```
+		{% raw %}{% assign var = 'this'%}{% endraw %}
+
+		returns
+
+		{% assign var = 'this'%}
+		```
 
 
 
