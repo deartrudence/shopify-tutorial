@@ -17,13 +17,22 @@
 
 ## Liquid Logic
 
-+ ### {% assign %}
++ ```{% assign %}```
+	* Creates a new variable.
+	```
+	{% assign var-name = 'elephant' %}
+	{{ var-name }}
+
+	returns
+
+	elephant
+	```
 + ```{% comment %}```
 	* This tag allows you to put comments in your liquid code. 
 	```
 	{% comment %} This is a great comment {% endcomment %}
 	```
-+ ### ```{% case %}```
++ ```{% case %}```
 + ```{% cycle %}```
 + ```{% capture %}```
 	* Captures the string inside of the opening and closing tags and assigns it to a variable. Variables created through {% capture %} are strings. This is very useful for capturing information that's being looped over.
