@@ -19,6 +19,15 @@
 
 + ```{% comment %}```
 + ```{% raw %}```
+	* disable liquid processing engine using the raw tag.
+	```
+	{% raw %}{% assign var = 'this'%}{% endraw %}
+
+	returns
+
+	{% assign var = 'this'%}
+	```
+	}
 + ```{% if %}```
 + ```{% unless %}```
 + ```{% case %}```
@@ -59,6 +68,7 @@
 	- 3
 
 	- 3
+	```
 	```{% capture %}```
 	```{% include %}```
 
