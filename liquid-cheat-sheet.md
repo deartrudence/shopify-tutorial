@@ -17,42 +17,12 @@
 
 ## Liquid Logic
 
++ ```{% assign %}```
 + ```{% comment %}```
-+ ```{% raw %}```
-	* disable liquid processing engine using the raw tag.
-	```
-	{% raw %}{% assign var = 'this'%}{% endraw %}
-
-	returns
-
-	{% assign var = 'this'%}
-	```
-	}
-+ ```{% if %}```
-+ ```{% unless %}```
 + ```{% case %}```
 + ```{% cycle %}```
-+ ```{% for %}```
-+ ```{% tablerow %}```
-+ ```{% assign %}```
-+ ```{% increment %}```
-		* increment sets the variable to 0, then every time it is called after, it increments the variable by 1.  It works independently of variables created using the ```assign``` or ```capture``` keywords even if they have the same name.
-		```
-		{% increment counter %}
-		{% increment counter %}
-		{% increment counter %}
-
-		{{ counter }}
-
-		returns 
-
-		0
-		1
-		2
-		
-		2
-		```
-```{% decrement %}```
++ ```{% capture %}```
++ ```{% decrement %}```
 	* decrement sets the variable to 0, then every time it is called after, it decrements the variable by 1.  It works independently of variables created using the ```assign``` or ```capture``` keywords even if they have the same name.
 	```
 	{% increment counter %}
@@ -69,8 +39,41 @@
 
 	- 3
 	```
-	```{% capture %}```
-	```{% include %}```
++ ```{% for %}```
++ ```{% if %}```
++ ```{% include %}``` 
++ ```{% increment %}```
+		* increment sets the variable to 0, then every time it is called after, it increments the variable by 1.  It works independently of variables created using the ```assign``` or ```capture``` keywords even if they have the same name.
+		
+		```
+		{% increment counter %}
+		{% increment counter %}
+		{% increment counter %}
+
+		{{ counter }}
+
+		returns 
+
+		0
+		1
+		2
+		
+		2
+		```
++ ```{% raw %}```
+	* disable liquid processing engine using the raw tag.
+	```
+	{% raw %}{% assign var = 'this'%}{% endraw %}
+
+	returns
+
+	{% assign var = 'this'%}
+	```
+	}
++ ```{% unless %}```
++ ```{% tablerow %}```
+
+
 
 
 ## Operators
