@@ -12,33 +12,33 @@
 * Now add some words to the index.liquid file, save and see the changes in the store!
 * Setup Compass for sass compilation
 * Upload sample products
-* Csv upload
+  * Csv upload
 
 ## The Layout - Theme.liquid
-Brief intro to Liquid
-Bring in Header/Content
-Bring in stylesheets
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ page_title}} - {{ shop.name }}</title>
-{{ "normalize.css" | asset_url | stylesheet_tag }}
-{{ 'styles.scss' | asset_url | stylesheet_tag }}
-Wrap p tags around words <p>The main page :)</p> to make sure styles took
-Bring in JavaScript
-{{ "option_selection.js" | shopify_asset_url | script_tag }}
-{{ "shopify_common.js" | shopify_asset_url | script_tag }}
-{{ "customer_area.js"  | shopify_asset_url | script_tag }}
-{{ "//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" | script_tag }}
-{{ content_for_layout}}
-<div class="container">
+* Brief intro to Liquid
+* Bring in Header/Content
+  * Bring in stylesheets
+    1. <meta name="viewport" content="width=device-width, initial-scale=1">
+    2. <title>{{ page_title}} - {{ shop.name }}</title>
+    3. {{ "normalize.css" | asset_url | stylesheet_tag }}
+    4. {{ 'styles.scss' | asset_url | stylesheet_tag }}
+    5. Wrap p tags around words <p>The main page :)</p> to make sure styles took
+  * Bring in JavaScript
+    1. {{ "option_selection.js" | shopify_asset_url | script_tag }}
+    2. {{ "shopify_common.js" | shopify_asset_url | script_tag }}
+    3. {{ "customer_area.js"  | shopify_asset_url | script_tag }}
+    4. {{ "//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" | script_tag }}
+* {{ content_for_layout}}
+  * <div class="container">
       {{ content_for_layout}}
-</div>
-Added blue box so you can see container
-Shop title
+    </div>
+  * Added blue box so you can see container
+* Shop title
 <h1><a href="/">{{ shop.name }}</a></h1>
 Our first use of Liquid templating
 <img src="{{'logo.svg' | asset_url}}" class="logo" alt="pineapple">
 Bringing in an image with the asset_url
-Main Menu  
+* Main Menu  
 Linklist for main menu
 Go to online store/navigation, you’ll see menus.
 Click edit on the menu to find out the handle
@@ -60,7 +60,7 @@ Linklist for footer menu
 
 
 
-		shopify_asset_url
+shopify_asset_url
 Returns the URL of a global assets that are found on Shopify's servers. Globally-hosted assets include:
 option_selection.js
 api.jquery.js
