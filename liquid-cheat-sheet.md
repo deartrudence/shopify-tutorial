@@ -141,25 +141,25 @@
 + ```{% tablerow %}```
 
 Iteration tags
-	* for
-	* cycle
-	* tablerow
++ for
++ cycle
++ tablerow
 Control flow tags
-	* if
-	* unless
-	* case
++ if
++ unless
++ case
 Theme tags
-	* comment
-	* include
-	* form
-	* layout
-	* paginate
-	* raw
++ comment
++ include
++ form
++ layout
++ paginate
++ raw
 Variable tags
-	* assign
-	* capture
-	* increment
-	* decrement
++ assign
++ capture
++ increment
++ decrement
 
 
 ## Operators
