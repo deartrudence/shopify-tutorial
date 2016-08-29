@@ -1,6 +1,5 @@
 # Shopify Course Outline
 
-[Visit GitHub!](www.github.com)
 
 ## The Setup
 * Download starter theme
@@ -154,7 +153,6 @@
     * 2 submit forms
     * 1 submit needs name=”chechout”, this takes you to checkout...all other names just update the form
     * If nothing, just have one sentence (maybe get that styled as well)
-    * 
     ```
     <h3>Cart: <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a></h3>
     ```
