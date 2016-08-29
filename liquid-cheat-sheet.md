@@ -234,12 +234,85 @@
 		{{ product.description | strip_newlines }}
 		```
 	* truncate
+		- Truncates a string down to the number of characters passed as the first parameter. An ellipsis (...) is appended to the truncated string and is included in the character count.
+		```
+		{{ "The cat came back the very next day" | truncate: 13 }}
+
+		returns
+
+		The cat ca...
+		```
+		- Custom ellipsis
+		```
+		{{ "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | truncate: 18, ", and so on" }}
+
+		returns
+
+		ABCDEFG, and so on
+		``` 
+		- No ellipsis
+		```
+		{{ "I'm a little teapot, short and stout." | truncate: 15, "" }}
+
+		returns
+
+		I'm a little te
+		```
 	* truncatewords
+		Truncates a string down to the number of words passed as the first parameter. An ellipsis (...) is appended to the truncated string.
+		```
+		{{ "The cat came back the very next day" | truncatewords: 4 }}
+
+		returns
+
+		The cat came back...
+		```
+		- Same custom ellipsis as ```truncate```
 	* upcase
+		- Converts a string into uppercase.
+		```
+		{{ 'this is awesome' | upcase }}
+
+		returns
+
+		THIS IS AWESOME
+		```
 	* url_encode
+		- Converts any URL-unsafe characters in a string into percent-encoded characters.
+		```
+		{{ "Apple Pie" | url_encode }}
+
+		returns
+
+		Apple+Pie
+		```
 	* url_escape
+		- Identifies all characters in a string that are not allowed in URLS, and replaces the characters with their escaped variants.
+		```
+		{{ "<hello> & <shopify>" | url_escape }}
+
+		returns
+
+		%3Chello%3E%20&%20%3Cshopify%3E
+		```
 	* url_param_escape
+		- Replaces all characters in a string that are not allowed in URLs with their escaped variants, including the ampersand (&).
+		```
+		{{ "<hello> & <shopify>" | url_param_escape }}
+
+		returns
+
+		%3Chello%3E%20%26%20%3Cshopify%3E
+		```
 	* reversing strings
+		- reverse cannot be used directly on a string, but you can split a string into an array, reverse the array, and rejoin it by chaining together other filters:
+		```
+		{{ "Ground control to Major Tom." | split: "" | reverse | join: "" }}
+
+		returns
+
+		.moT rojaM ot lortnoc dnuorG
+		```
 + URL filters
 	* asset_url
 	* asset_img_url
