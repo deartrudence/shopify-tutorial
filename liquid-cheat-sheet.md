@@ -26,6 +26,20 @@
 + ```{% case %}```
 + ```{% cycle %}```
 + ```{% capture %}```
+	* Captures the string inside of the opening and closing tags and assigns it to a variable. Variables created through {% capture %} are strings. This is very useful for capturing information that's being looped over.
+	```
+	{% capture item_list %}
+	  {% for item in cart.items %}
+	      {{ item.product.title }}
+	  {% endfor %}
+	{% endcapture %}
+
+	returns
+
+	item1 item2 item3
+	```
+
+	assuming those are the items in your cart.
 + ```{% decrement %}```
 	* decrement sets the variable to 0, then every time it is called after, it decrements the variable by 1.  It works independently of variables created using the ```assign``` or ```capture``` keywords even if they have the same name.
 	```
@@ -49,7 +63,7 @@
 + ```{% if %}```
 + ```{% include %}``` 
 	* Inserts a snippet from the snippets folder of a theme.
-	* 
+
 	```{% include 'snippet-name' %}```
 
 	* You can also include variables to be used within the snippet.
@@ -57,7 +71,7 @@
 	```{% include 'snippet', first_var: 'books', second_var: 'videos' %}```
 
 	* The with parameter assigns a value to a variable inside a snippet that shares the same name as the snippet. If snippet is named 'fruit.liquid' you can use:
-	
+
 	```{% include 'fruit' with 'peach' %}```
 
 		* this will set the variable fruit inside the snippet to 'peach'.
