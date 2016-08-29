@@ -34,9 +34,9 @@
     </div>
   * Added blue box so you can see container
 * Shop title
-<h1><a href="/">{{ shop.name }}</a></h1>
-Our first use of Liquid templating
-<img src="{{'logo.svg' | asset_url}}" class="logo" alt="pineapple">
+  * Our first use of Liquid templating
+    * '''<h1><a href="/">{{ shop.name }}</a></h1>
+<img src="{{'logo.svg' | asset_url}}" class="logo" alt="pineapple">'''
 Bringing in an image with the asset_url
 * Main Menu  
 Linklist for main menu
