@@ -88,9 +88,10 @@
 ## Loops
 
 ## Forms
-Shopify creates some helpers in order to make standard forms for your shop
+Shopify creates some helpers in order to make standard forms for your shop.
+
 ```{% form 'name_of_shopify_form' %}```
-+ activate_customer_password
++ ***activate_customer_password***
 	* Generates a form for activating a customer account on the activate_account.liquid template.
 	```
 	{% for 'activate_customer_password %}
@@ -105,7 +106,7 @@ Shopify creates some helpers in order to make standard forms for your shop
 	  ...
 	</form>
 	```
-+ new_comment
++ **new_comment**
 	* Generates a form for creating a new comment in the article.liquid template. Requires the article object as a parameter.
 	```
 	{% form 'new_comment', article %}
