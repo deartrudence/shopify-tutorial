@@ -17,7 +17,7 @@
 
 ## Liquid Logic
 
-+ ```{% assign %}```
++ ###```{% assign %}```
 + ```{% comment %}```
 	* This tag allows you to put comments in your liquid code. 
 	```
