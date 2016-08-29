@@ -86,10 +86,85 @@
 ### Iteration tags
 + for
 	+ ```{% for %}```
+	+ Repeatedly executes a block of code.
+	```
+	{% for product in collection.products %}
+	  {{ product.title }}
+	{% endfor %}
+	```
+
+	+ for loops can output a maximum of 50 results per page. In cases where there are more than 50 results, use the paginate tag to split them across multiple pages.
+
 + cycle
 	+ ```{% cycle %}```
+	+ Loops through a group of strings and outputs them in the order that they were passed as parameters. Each time cycle is called, the next string that was passed as a parameter is output. In this example we're using it to add the class of last to every fourth div.
+	```
+	<div class="left {% cycle '','','','last' %}">
+	      <img src="{{ product.featured_image.src | product_img_url: 'medium' }}" />
+	</div>
+
+	returns
+
+	<div class="left"></div>
+	<div class="left"></div>
+	<div class="left"></div>
+	<div class="left last"></div>
+	<div class="left"></div>
+	<div class="left"></div>
+	<div class="left"></div>
+	<div class="left last"></div>
+
+	```
 + tablerow
 	+ ```{% tablerow %}```
+	+ Generates an HTML <table>. Must be wrapped in an opening <table> and closing </table> HTML tags.
+	```
+	<table>
+	{% tablerow product in collection.products %}
+	  {{ product.title }}
+	{% endtablerow %}
+	</table>
+
+	returns
+
+	<table>
+	    <tr class="row1">
+	        <td class="col1">
+	            the blue book
+	        </td>
+	        <td class="col2">
+	            the red book
+	        </td>
+	        <td class="col3">
+	            the yellow book
+	        </td>
+	    </tr>
+	</table>
+	```
+	+ You can add the 'cols' parameter to affect how many there are in a row
+	```
+	{% tablerow product in collection.products cols:2 %}
+	  {{ product.title }}
+	{% endtablerow %}
+
+	returns
+
+	<table>
+	    <tr class="row1">
+	        <td class="col1">
+	            the blue book
+	        </td>
+	        <td class="col2">
+	            the red book
+	        </td>
+	    </tr>
+	    <tr class="row2">
+	        <td class="col1">
+	            the yellow book
+	        </td>
+	    </tr>
+	</table>
+	```
 
 
 ### Control flow tags
@@ -173,6 +248,7 @@
 ## Images
 
 ## Loops
+### [forloop helpers](https://help.shopify.com/themes/liquid/objects/for-loops) 
 
 ## Forms
 Shopify creates some helpers in order to make standard forms for your shop.
