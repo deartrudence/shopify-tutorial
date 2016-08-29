@@ -28,11 +28,23 @@
 	elephant
 	```
 + ```{% comment %}```
+
 	* This tag allows you to put comments in your liquid code. 
 	```
 	{% comment %} This is a great comment {% endcomment %}
 	```
 + ```{% case %}```
+	* Creates a switch statement to execute a particular block of code when a variable has a specified value. **case** initializes the switch statement, and **when** statements define the various conditions. The **else** statement is used as a catchall to execute if none of the conditions are met.
+	```
+	{% case product.title %}
+	  {% when 'The blue book' %}
+	     You're getting the blue book
+	  {% when 'The red book' %}
+	    You're getting the red book
+	  {% else %}
+	     You're getting another color book
+	{% endcase %}
+	```
 + ```{% cycle %}```
 + ```{% capture %}```
 	* Captures the string inside of the opening and closing tags and assigns it to a variable. Variables created through {% capture %} are strings. This is very useful for capturing information that's being looped over.
