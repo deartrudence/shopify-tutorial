@@ -14,6 +14,178 @@
 + Shop
 
 ## Liquid Filters
++ Array filters
+	* join
+	* first
+	* last
+	* concat
+	* index
+	* map
+	* reverse
+	* size
+	* sort
+	* uniq
++ HTML filters
+	* image_tag
+	* script_tag
+	* stylesheet_tag
++ Math filters
+	* abs
+	* ceil
+	* divided_by
+	* floor
+	* minus
+	* plus
+	* round
+	* times
+	* modulo
++ Money filters
+	* money
+	* money_with_currency
+	* money_without_trailing_zeros
+	* money_without_currency
++ String filters
+	* append
+		- Appends characters to a string.
+		```
+		{{ 'book' | append: '.png' }}
+
+		returns
+
+		book.png
+		```
+	* camelcase
+		- Converts a string into CamelCase.
+		```
+		{{ 'this-is-awesome' | camelcase }}
+
+		returns
+
+		ThisIsAwesome
+		```
+	* capitalize
+		- Capitalizes the first word in a string
+		```
+		{{ 'this is awesome' | capitalize }}
+
+		returns
+
+		This is awesome
+		```
+	* downcase
+		- Converts a string into lowercase
+		```
+		{{ "THIS IS AWESOME" | downcase }}
+
+		returns
+
+		this is awesome
+		```
+	* escape
+		- Escapes text.  For example prevents the <p> tags from rendering and they show up as a string.
+		```
+		{{ "<p>The book</p>" | escape }}
+
+		returns
+
+		<p>The book</p>
+		```
+	* handle/handleize
+		- Takes a string and turns it into a slug.
+		```
+		{{ '100% M & Ms!!!' | handleize }}
+
+		returns
+
+		100-m-ms
+		```
+	* ### Encoding
+	* md5
+		- Converts a string into an MD5 hash.
+	* sha1
+		- Converts a string into a SHA-1 hash.
+	* sha256
+		- Converts a string into a SHA-256 hash
+	* hmac_sha1
+		- Converts a string into a SHA-1 hash using a hash message authentication code (HMAC).
+	* hmac_sha256
+		- Converts a string into a SHA-256 hash using a hash message authentication code (HMAC)
+	* newline_to_br
+		- Inserts a <br > linebreak HTML tag in front of each line break in a string.
+		```
+		{% capture var %}
+		One Fish
+		Two Fish
+		Red Fish
+		Blue Fish
+		{% endcapture %}
+		{{ var | newline_to_br }}
+
+		returns
+
+		One Fish<br>
+		Two Fish<br>
+		Red Fish<br>
+		Blue Fish<br>
+		```
+	* pluralize
+	* prepend
+	* remove
+	* remove_first
+	* replace
+	* replace_first
+	* slice
+	* split
+	* strip
+	* lstrip
+	* rstrip
+	* strip_hmtl
+	* strip_newlines
+	* truncate
+	* truncatewords
+	* upcase
+	* url_encode
+	* url_escape
+	* url_param_escape
+	* reversing strings
++ URL filters
+	* asset_url
+	* asset_img_url
+	* file_url
+	* file_img_url
+	* customer_login_link
+	* global_asset_url
+	* img_url
+	* link_to
+	* link_to_vendor
+	* link_to_type
+		- Creates an HTML link to a collection page that lists all products belonging to a product type.
+		```
+		{{ "postcards" | link_to_type }}
+
+		returns
+
+		<a href="/collections/types?q=postcards" title="postcards">postcards</a>
+		```
+	* link_to_tag
+	* link_to_add_tag
+	* link_to_remove_tag
+	* payment_type_img_url
+	* product_img_url
+	* collection_img_url
+	* shopify_asset_url
+	* url_for_type
+	* url_for_vendor
+	* within
++ Additional filters
+	* date
+	* default
+	* default_errors
+	* default_pagination
+	* hex_to_rgba
+	* highlight_active_tag
+	* json
+	* weight_with_unit
 
 ## Liquid Logic
 
