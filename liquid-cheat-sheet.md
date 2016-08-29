@@ -132,9 +132,34 @@
 	{% assign var = 'this'%}
 	```
 + ```{% unless %}```
+	* Like if, but executes a block of code only if a certain condition is not met (ie. result is false).
+	```
+	{% unless product.title == 'the blue book' %}
+	  You are NOT buying the blue book!
+	{% endunless %}
+	```
 + ```{% tablerow %}```
 
-
+Iteration tags
+	* for
+	* cycle
+	* tablerow
+Control flow tags
+	* if
+	* unless
+	* case
+Theme tags
+	* comment
+	* include
+	* form
+	* layout
+	* paginate
+	* raw
+Variable tags
+	* assign
+	* capture
+	* increment
+	* decrement
 
 
 ## Operators
