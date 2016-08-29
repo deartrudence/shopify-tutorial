@@ -88,6 +88,7 @@
 ## Loops
 
 ## Forms
+Shopify creates some helpers in order to make standard forms for your shop
 ```{% form 'name_of_shopify_form' %}```
 + activate_customer_password
 	* Generates a form for activating a customer account on the activate_account.liquid template.
