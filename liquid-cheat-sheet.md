@@ -19,6 +19,10 @@
 
 + ```{% assign %}```
 + ```{% comment %}```
+	* This tag allows you to put comments in your liquid code. 
+	```
+	{% comment %} This is a great comment {% endcomment %}
+	```
 + ```{% case %}```
 + ```{% cycle %}```
 + ```{% capture %}```
@@ -43,23 +47,23 @@
 + ```{% if %}```
 + ```{% include %}``` 
 + ```{% increment %}```
-		* increment sets the variable to 0, then every time it is called after, it increments the variable by 1.  It works independently of variables created using the ```assign``` or ```capture``` keywords even if they have the same name.
-		
-		```
-		{% increment counter %}
-		{% increment counter %}
-		{% increment counter %}
+	+ increment sets the variable to 0, then every time it is called after, it increments the variable by 1.  It works independently of variables created using the ```assign``` or ```capture``` keywords even if they have the same name.
+	
+	```
+	{% increment counter %}
+	{% increment counter %}
+	{% increment counter %}
 
-		{{ counter }}
+	{{ counter }}
 
-		returns 
+	returns 
 
-		0
-		1
-		2
-		
-		2
-		```
+	0
+	1
+	2
+	
+	2
+	```
 + ```{% raw %}```
 	* disable liquid processing engine using the raw tag.
 	```
@@ -69,7 +73,6 @@
 
 	{% assign var = 'this'%}
 	```
-	}
 + ```{% unless %}```
 + ```{% tablerow %}```
 
@@ -83,5 +86,21 @@
 ## Images
 
 ## Loops
+
+## Forms
+	```{% form 'name_of_shopify_form' %}```
+	* activate_customer_password
+	* new_comment
+	* contact
+	* customer
+	* create_customer
+	* customer_address
+	* customer_login
+	* guest_login
+	* recover_customer_password
+	* reset_customer_password
+	* storefront_password
+
+
 
 ## Pagination
