@@ -18,21 +18,24 @@
 * Brief intro to Liquid
 * Bring in Header/Content
   * Bring in stylesheets
-    1. <meta name="viewport" content="width=device-width, initial-scale=1">
-    2. <title>{{ page_title}} - {{ shop.name }}</title>
-    3. {{ "normalize.css" | asset_url | stylesheet_tag }}
-    4. {{ 'styles.scss' | asset_url | stylesheet_tag }}
-    5. Wrap p tags around words <p>The main page :)</p> to make sure styles took
+    1. ```<meta name="viewport" content="width=device-width, initial-scale=1">```
+    2. ```<title>{{ page_title}} - {{ shop.name }}</title>```
+    3. ```{{ "normalize.css" | asset_url | stylesheet_tag }}```
+    4. ```{{ 'styles.scss' | asset_url | stylesheet_tag }}```
+    5. Wrap p tags around words ```<p> The main page :) </p>``` to make sure styles took
   * Bring in JavaScript
-    1. {{ "option_selection.js" | shopify_asset_url | script_tag }}
-    2. {{ "shopify_common.js" | shopify_asset_url | script_tag }}
-    3. {{ "customer_area.js"  | shopify_asset_url | script_tag }}
-    4. {{ "//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" | script_tag }}
-* {{ content_for_layout}}
-  * <div class="container">
-      {{ content_for_layout}}
-    </div>
-  * Added blue box so you can see container
+    1. ```{{ "option_selection.js" | shopify_asset_url | script_tag }}```
+    2. ```{{ "shopify_common.js" | shopify_asset_url | script_tag }}```
+    3. ```{{ "customer_area.js"  | shopify_asset_url | script_tag }}```
+    4. ```{{ "//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" | script_tag }}```
+  * Bring in the Content
+    * ```{{ content_for_layout}}```
+      ```
+      <div class="container">
+        {{ content_for_layout}}
+      </div>
+      ```
+    * Added blue box so you can see container
 * Shop title
   * Our first use of Liquid templating
     * ```<h1><a href="/">{{ shop.name }}</a></h1>```
@@ -151,7 +154,8 @@
     * 2 submit forms
     * 1 submit needs name=”chechout”, this takes you to checkout...all other names just update the form
     * If nothing, just have one sentence (maybe get that styled as well)
-    * ```
+    * 
+    ```
     <h3>Cart: <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a></h3>
     ```
   * On layout theme.liquid
@@ -168,4 +172,6 @@
   * Enable customer accounts - Settings > Checkout  in customer accounts area select “Accounts are optional”
   * browser, navigate to your-store-name.myshopify.com/account/register
     * Create customer account
+
+
 ## Page.liquid (later)
