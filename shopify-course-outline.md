@@ -13,7 +13,7 @@
 * Upload sample products
   * Csv upload
 
-## The Layout - Theme.liquid
+## 02 - The Layout - Theme.liquid
 * Brief intro to Liquid
 * Bring in Header/Content
   * Bring in stylesheets
@@ -73,7 +73,7 @@
 
 
 
-## Index.liquid
+## 03 - Index.liquid
   * In the homepage page of the in the shopify panel and the bottom of the page in the Search engine listing preview section, the ‘handle’ of the page is the last bit of the url
   ![](images/search-engine-preview.png)
 
@@ -94,7 +94,7 @@
     * Add above to page.about.liquid
 
 
-## Snippets - product-loop.liquid
+## 04 - Snippets - product-loop.liquid
   * Got to Products / Collections / Home page
   * Add all your products to the home collection
   * Snippets! Reusable bits of code!
@@ -125,7 +125,7 @@
   </div>
   ```
 
-## The Product Page - Product.liquid
+## 05 - The Product Page - Product.liquid
   * In the products section of the Shopify admin click on one of the products.  You’ll notice there is already a title and description and a price (and maybe some variants).  This was all added when we uploaded the sample products csv.
   * Product.liquid
   * the products featured image (code in 05-pineapple)
@@ -137,7 +137,7 @@
   * initialize multi selector for product (js)
   * selectCallback is a very important Javascript function that is used on the product template. Its main purpose is to split up a product’s options into multiple dropdowns, based on how many Options a product has. What’s important to know about selectCallback is that it triggers every time a user selects a different variant using the dropdowns. This means that it can be used to output information of the currently-selected variant such as price, compare at price, SKU, inventory quantity, etc. (for a full list of what can be output, seehttp://wiki.shopify.com/Variant).Notice how the price and availability of the variant now update as you select different variants from the dropdowns. That’s selectCallback at work baby!
 
-## The Cart - cart.liquid
+## 06 - The Cart - cart.liquid
 
   * ```<h2>The Cart</h2>```
   ```
@@ -158,14 +158,14 @@
     ```
   * On layout theme.liquid
 
-## Pagination and the Collection and List-collection
+## 07 - Pagination and the Collection and List-collection
   * Paginate the front page in index.liquid
   * Add more collections to shop
   * Make list-collection.liquid
   * Add collections to menu (in shopify admin onlinestore/navigation)
   * Same product-loop
 
-## Customer Accounts
+## 08 - Customer Accounts
   * 7 .liquid files that allow returning customers to create an account, view their previous orders, set their default addresses, and more.
   * Enable customer accounts - Settings > Checkout  in customer accounts area select “Accounts are optional”
   * browser, navigate to your-store-name.myshopify.com/account/register

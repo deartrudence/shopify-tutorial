@@ -1,4 +1,5 @@
 # Liquid Cheat Sheet
+https://help.shopify.com/themes/development/internationalizing/translation-filter#translated-string-retrieval
 
 ## Template Variables
 
@@ -16,6 +17,15 @@
 ## Liquid Filters
 + Array filters
 	* join
+		- Joins the elements of an array with the character passed as the parameter. The result is a single string.
+		```
+		{{ product.tags | join: ', ' }}
+
+		returns
+
+		tag1, tag2, tag3
+		```
+
 	* first
 	* last
 	* concat
