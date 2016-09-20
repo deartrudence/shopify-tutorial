@@ -157,6 +157,38 @@
     <h3>Cart: <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a></h3>
     ```
   * On layout theme.liquid
+    ```
+    <!-- Slide-out Cart -->
+    <div class="cart--quick">
+      <h2>My Cart</h2>
+      <div class="cart--product">
+        <div class="cart--product-image">
+          <img src="assets/pineapple-1.jpg" alt="">
+        </div>
+        <div class="cart--product-details">
+          <div> 
+            <h3>The Line Up</h3>
+            <span class="price">$20.00</span>
+          </div>
+          <div class="cart--qty">
+            <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus icon-fallback-text" data-id="{{id}}" data-qty="{{itemMinus}}" data-line="{{line}}">
+              <span class="fallback-text">&minus;</span>
+            </button>
+            <input type="text" name="updates[]" class="ajaxcart__qty-num" value="231" min="0" data-id="{{id}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
+            <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus icon-fallback-text" data-id="{{id}}" data-line="{{line}}" data-qty="{{itemAdd}}">
+              <span class="fallback-text">+</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="cart--total">
+          <!-- Link to cart page that shows number of items and count -->
+          <h3>Cart: <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a></h3>
+        <p><span>Subtotal:</span><span>$56.50</span></p>
+        <a href="" class="btn">Checkout</a>
+      </div>
+    </div>
+    ```
 
 ## 07 - Pagination and the Collection and List-collection
   * Paginate the front page in index.liquid
@@ -171,5 +203,10 @@
   * browser, navigate to your-store-name.myshopify.com/account/register
     * Create customer account
 
+## Product Variants (later)
+  * Dropdowns
+  * Ajax price change on dropdown select
 
 ## Page.liquid (later)
+
+## The Settings file (later)
