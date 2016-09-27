@@ -136,6 +136,7 @@
   * A call back to check if there are variants, if it there are it checks availability. (js)
   * initialize multi selector for product (js)
   * selectCallback is a very important Javascript function that is used on the product template. Its main purpose is to split up a product’s options into multiple dropdowns, based on how many Options a product has. What’s important to know about selectCallback is that it triggers every time a user selects a different variant using the dropdowns. This means that it can be used to output information of the currently-selected variant such as price, compare at price, SKU, inventory quantity, etc. (for a full list of what can be output, seehttp://wiki.shopify.com/Variant).Notice how the price and availability of the variant now update as you select different variants from the dropdowns. That’s selectCallback at work baby!
+  
 ## 06-a the AJAX Cart
   * `layout/theme.liquid`
   ```
