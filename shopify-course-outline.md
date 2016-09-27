@@ -136,7 +136,181 @@
   * A call back to check if there are variants, if it there are it checks availability. (js)
   * initialize multi selector for product (js)
   * selectCallback is a very important Javascript function that is used on the product template. Its main purpose is to split up a product’s options into multiple dropdowns, based on how many Options a product has. What’s important to know about selectCallback is that it triggers every time a user selects a different variant using the dropdowns. This means that it can be used to output information of the currently-selected variant such as price, compare at price, SKU, inventory quantity, etc. (for a full list of what can be output, seehttp://wiki.shopify.com/Variant).Notice how the price and availability of the variant now update as you select different variants from the dropdowns. That’s selectCallback at work baby!
+## 06-a the AJAX Cart
+  * `layout/theme.liquid`
+  ```
+  <!-- Slide-out Cart -->
+  <div class="cart--quick">
+    <h2>My Cart</h2>
+    {% if cart.item_count > 0 %}
+      <h3>items in cart</h3>
+      {% for item in cart.items %}
+        <div class="cart--product">
+          <div class="cart--product-image">
+            <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}" >
+          </div>
+          <div class="cart--product-details">
+            <div> 
+              <h3>{{item.product.title}}</h3>
+              <h3>
+                {% unless item.variant.title contains 'Default' %}
+                  {{ item.variant.title }}
+                {% endunless %}
+              </h3>
+              <span class="price">{{ item.price | money }}</span>
+            </div>
+            <div class="cart--qty">
 
+              <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus icon-fallback-text" data-id="{{item.id}}"  onclick="removeItem('{{ item.id }}')">
+                <span class="fallback-text">&minus;</span>
+              </button>
+
+              <input type="text" name="updates[]" class="ajaxcart__qty-num" value="{{item.quantity}}" min="0" data-id="{{item.id}}"  aria-label="quantity" pattern="[0-9]*">
+
+              <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus icon-fallback-text" data-id="{{id}}" data-line="{{line}}" data-qty="{{itemAdd}}" onclick="addItem('{{ item.id }}')">
+                <span class="fallback-text">+</span>
+              </button>
+
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+    <div class="cart--total">
+
+       <!-- Shows total price of the cart -->
+      <p><span>Subtotal:</span><span class="js-subtotal-amount">{{ cart.total_price | money }}</span></p>
+
+      <!-- Link to checkout -->
+      <a href="/checkout" class="btn">Checkout</a>
+    </div>
+  </div> <!-- /. end Slide-out cart -->
+  ```
+  * the JavaScript
+  --> function to toggle the cart slide-out
+  ```<script>
+    $(function(){
+
+      // Toggle Cart Slide-out
+      $('.cart').on('click', function(){
+        $('.cart--quick').toggleClass('active');
+        $('main').toggleClass('active-cart');
+        setTimeout(function(){
+          $('main').hasClass('active-cart') ? $('main').css('left', 'auto') : $('main').attr('style', '')
+        }, 300)
+      });
+  ```
+  --> A listener to add
+  ```
+      // Change quantity of product when field changes
+      $('.ajaxcart__qty-num').on('change', function(){
+        var id = $(this).data('id');
+        var quantity = parseInt($(this).val());
+        // console.log(id, quantity)
+        changeItemQuantity(id, quantity)
+      })
+
+    }) // end ready function
+```
+
+    // AJAX Cart Functions
+    // -------------------
+```
+    function addItem(variant_id) {
+      // Pull the current quantity from input form
+      var quantity =  parseInt($('input[data-id="' + variant_id + '"]').val())
+
+      // This variable is used to send the new quantity value to changeItemQuantityOk function
+      var new_quantity = quantity + 1
+
+      // Set data values for ajax call - quantity is hardcoded to one
+      //    -- we're going to the cart/add.js endpoint
+      var data = 'id='+ variant_id + '&quantity=1' 
+       $.ajax({
+          type: 'POST', 
+          url: '/cart/add.js',
+          dataType: 'json', 
+          data: data,
+          success: function(){
+            changeItemQuantityOk(variant_id, new_quantity);
+            getCart();
+          },
+          error: function(error){
+            alert(error.responseJSON.description)
+          }
+       });
+    }
+
+    function removeItem(variant_id) {
+      // Pull the current quantity from input form
+      var quantity =  parseInt($('input[data-id="' + variant_id + '"]').val())
+
+      // if there is any quantity
+      if (quantity > 0){
+        // reduce the quantity by 1
+        var new_quantity = quantity - 1
+        //Call the change.js ajax function
+        changeItemAjax(variant_id, new_quantity)
+      }
+    }
+
+    function changeItemQuantity(variant_id, quantity) {
+      // if there is quantity or if the user wants to set it to 0
+      if(quantity >= 0){
+        //Call the change.js ajax function
+        changeItemAjax(variant_id, quantity)
+      } else {
+        alert("cannot add negative quantity")
+      }
+    }
+
+    function changeItemAjax(variant_id, new_quantity){
+      // Set data values for ajax call - quantity is dynamic since we're 
+      // changing the quantity to whatever the user has inputed
+      //    -- we're going to the cart/change.js endpoint
+      var data = 'id='+ variant_id + '&quantity='+ new_quantity 
+      $.ajax({
+        type: 'POST', 
+        url: '/cart/change.js',
+        dataType: 'json', 
+        data: data,
+        success: function(){
+          changeItemQuantityOk(variant_id, new_quantity);
+          getCart();
+        },
+        error: function(error){
+          alert(error.responseJSON.description)
+        }
+      });
+    }
+
+    function changeItemQuantityOk(variant_id, new_quantity){
+      // get the input corresponding to the the product by variant id
+      var input = $('input[data-id="' + variant_id + '"]')
+      // change the input value to the new quantity
+      new_quantity >= 0 ? input.val(new_quantity) : input.val(0)
+    }
+
+    function getCart(){
+      // an ajax call to the /cart endpoint to obtain the new cart total price
+      //   -- on success update the subtotal with the new amount
+      $.ajax({
+         type: 'GET', 
+         url: '/cart',
+         dataType: 'json',
+         success: function(data){
+          var dollar_amount = '$' + (data.total_price / 100).toFixed(2).toLocaleString()
+           $('.js-subtotal-amount').text(dollar_amount)
+         },
+         error: function(error){
+          alert(error.responseJSON.description)
+         }
+      });
+    }
+
+  </script>
+
+  ```
 ## 06 - The Cart - `templates/cart.liquid`
 
   * ```<h2>The Cart</h2>```
