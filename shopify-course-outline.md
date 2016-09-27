@@ -8,7 +8,7 @@
 * Should just see ‘main page :)’
 * This is found in the ‘templates/index.liquid’ file
 * Setup Theme watch for local development
-* Now add some words to the index.liquid file, save and see the changes in the store!
+* Now add some words to the ‘templates/index.liquid’ file, save and see the changes in the store!
 * Setup Compass for sass compilation
 * Upload sample products
   * Csv upload
@@ -82,7 +82,7 @@
     * ```<h2>{{ page.title }}</h2>```
     * ```<p>{{ page.content }}</p>```
   * About page
-    * Create page.about.liquid
+    * Create `templates/page.about.liquid`
     * Go to about page
     * Must save for ‘templates’ dropdown to appear
     * Select page.about
@@ -127,7 +127,7 @@
 
 ## 05 - The Product Page - Product.liquid
   * In the products section of the Shopify admin click on one of the products.  You’ll notice there is already a title and description and a price (and maybe some variants).  This was all added when we uploaded the sample products csv.
-  * Product.liquid
+  *  `templates/product.liquid`
   * the products featured image (code in 05-pineapple)
   * if the product has extra product shots (code in 05-pineapple)
   * Product title, cost, and description
@@ -137,7 +137,7 @@
   * initialize multi selector for product (js)
   * selectCallback is a very important Javascript function that is used on the product template. Its main purpose is to split up a product’s options into multiple dropdowns, based on how many Options a product has. What’s important to know about selectCallback is that it triggers every time a user selects a different variant using the dropdowns. This means that it can be used to output information of the currently-selected variant such as price, compare at price, SKU, inventory quantity, etc. (for a full list of what can be output, seehttp://wiki.shopify.com/Variant).Notice how the price and availability of the variant now update as you select different variants from the dropdowns. That’s selectCallback at work baby!
 
-## 06 - The Cart - cart.liquid
+## 06 - The Cart - `templates/cart.liquid`
 
   * ```<h2>The Cart</h2>```
   ```
@@ -156,7 +156,7 @@
     ```
     <h3>Cart: <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a></h3>
     ```
-  * On layout theme.liquid
+  * On layout `layout/theme.liquid`
     ```
     <!-- Slide-out Cart -->
     <div class="cart--quick">
@@ -210,7 +210,7 @@
     --> We do not need an assign here because when you’re on a collection template, you already know which collection you’re viewing by the url
       ie. https://pineapple-18.myshopify.com/collections/multiple-pineapples
     --> Same product-loop
-  * Paginate the front page in index.liquid
+  * Paginate the front page in `templates/index.liquid`
      --> place code around collection code already there
 ```
 {% paginate collection.products by 8 %}
@@ -224,7 +224,7 @@
 
 {% endpaginate %}
 ```
-  * Make list-collection.liquid
+  * Make `templates/list-collection.liquid`
 
 ```
   {% paginate collections by 4 %}
