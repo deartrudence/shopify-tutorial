@@ -191,11 +191,90 @@
     ```
 
 ## 07 - Pagination and the Collection and List-collection
-  * Paginate the front page in index.liquid
   * Add more collections to shop
+  * get the collection title, description and products
+    --> in `templates/collection.liquid`
+    ```
+    <div class="clearfix">
+  <h2>{{ collection.title }}</h2>
+  <div class="collection-desc rte">
+    {{ collection.description }}
+  </div>
+
+  <!-- use the same product loop that's used in index.liquid -->
+  {% for product in collection.products %}
+    {% include 'product-loop' %}
+  {% endfor %}
+</div>
+```
+    --> We do not need an assign here because when you’re on a collection template, you already know which collection you’re viewing by the url
+      ie. https://pineapple-18.myshopify.com/collections/multiple-pineapples
+    --> Same product-loop
+  * Paginate the front page in index.liquid
+     --> place code around collection code already there
+```
+{% paginate collection.products by 8 %}
+...
+...
+{% if paginate.pages > 1 %}
+<div class="pagination">
+  {{ paginate | default_pagination }}
+</div>
+{% endif %}
+
+{% endpaginate %}
+```
   * Make list-collection.liquid
+
+```
+  {% paginate collections by 4 %}
+
+  <div class="clearfix">
+      <!-- if collections exist -->
+      {% if collections.size > 0 %}
+          <h2>Collections</h2>
+
+          <!-- loop through all the collections -->
+          {% for collection in collections %}
+
+              <!-- cycle through, adding the classes product and left to everyone and last to every fourth one -->
+              <div class="product left {% cycle '','','','last' %}">
+
+                <div class="product-thumb">
+                  <!-- set the image to the first image in the collection or the collection feature image -->
+                  <!-- either way set a link to the collection page -->
+                  <a href="{{ collection.url  }}">
+                      {% if collection.image %}
+                          {{ collection.image.src | collection_img_url: 'medium' | img_tag: collection_title }}
+                      {% else %}
+                          {{ collection.products.first.featured_image | product_img_url: 'medium' | img_tag: collection_title }}
+                      {% endif %}              
+                  </a>
+                </div>
+
+                <!-- the collection title -->
+                <div class="product-title">
+                  <a href="{{ collection.url}}">
+                      {{ collection.title }}
+                    </a>
+                </div>
+              </div>
+          {% endfor %}
+      {% else %}
+          <!-- otherwise -->
+          You have no collections!
+      {% endif %}
+  </div>
+
+  {% if paginate.pages > 1 %}
+  <div class="pagination">
+    {{ paginate | default_pagination }}
+  </div>
+  {% endif %}
+
+  {% endpaginate %}
+```
   * Add collections to menu (in shopify admin onlinestore/navigation)
-  * Same product-loop
 
 ## 08 - Customer Accounts
   * 7 .liquid files that allow returning customers to create an account, view their previous orders, set their default addresses, and more.
