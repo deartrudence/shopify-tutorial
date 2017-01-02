@@ -15,14 +15,20 @@
 
 ## 02 - The Layout - Theme.liquid
 * Brief intro to Liquid
+  Liquid is the templating language used in Shopify theme development.  It allows you to add programming logic to your theme.  It also gives you access to Shopify 'objects', things like products and blog posts that you'll want to access that are stored in your Shopify store.
+
+  {% %} tags allow you to perform logic like if statements and loops.
+
+  {{ }} tags allow you to display Shopify 'objects' and info about them on the page.
+
+  We'll be showing examples of what can be done with liquid as we go through the tutorials.  But for further info you can look at our **Liquid Quick Ref**
+
 * Bring in Header/Content
-  * Bring in stylesheets
-    ```
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page_title}} - {{ shop.name }}</title>
-    {{ "normalize.css" | asset_url | stylesheet_tag }}
-    {{ 'styles.scss' | asset_url | stylesheet_tag }}
-    ```
+  * Bring in stylesheets (and meta tag )
+    1. ```<meta name="viewport" content="width=device-width, initial-scale=1">```
+    2. ```<title>{{ page_title}} - {{ shop.name }}</title>```
+    3. ```{{ "normalize.css" | asset_url | stylesheet_tag }}```
+    4. ```{{ 'styles.scss' | asset_url | stylesheet_tag }}```
     5. Wrap p tags around words ```<p> The main page :) </p>``` to make sure styles took
   * Bring in JavaScript
     1. ```{{ "option_selection.js" | shopify_asset_url | script_tag }}```
@@ -105,27 +111,27 @@
         {% include 'product-loop' %}
       {% endfor %}
   ```
-  * Cycle 
-  ```{% cycle '','','','last' %}```
-  ![](images/cycle.png)
-  ```
-  <div class="left {% cycle '','','','last' %}">
-    <div>
-      <a href="{{ product.url | within: collection }}">
-        <img src="{{ product.featured_image.src | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}" />
-      </a>
-    </div>
-    <div>
-      <a href="{{ product.url | within: collection }}">
-          {{ product.title }}
+    * Cycle 
+    ```{% cycle '','','','last' %}```
+    ![](images/cycle.png)
+    ```
+    <div class="left {% cycle '','','','last' %}">
+      <div>
+        <a href="{{ product.url | within: collection }}">
+          <img src="{{ product.featured_image.src | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}" />
         </a>
+      </div>
+      <div>
+        <a href="{{ product.url | within: collection }}">
+            {{ product.title }}
+          </a>
+      </div>
+      <div >
+        {% if product.price_varies %}From{% endif %}
+        {{ product.price | money }}
+      </div>
     </div>
-    <div >
-      {% if product.price_varies %}From{% endif %}
-      {{ product.price | money }}
-    </div>
-  </div>
-  ```
+    ```
 
 ## 05 - The Product Page - Product.liquid
   * In the products section of the Shopify admin click on one of the products.  You’ll notice there is already a title and description and a price (and maybe some variants).  This was all added when we uploaded the sample products csv.
