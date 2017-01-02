@@ -15,6 +15,7 @@
 
 ## 02 - The Layout - Theme.liquid
 * Brief intro to Liquid
+
   Liquid is the templating language used in Shopify theme development.  It allows you to add programming logic to your theme.  It also gives you access to Shopify 'objects', things like products and blog posts that you'll want to access that are stored in your Shopify store.
 
   {% %} tags allow you to perform logic like if statements and loops.
@@ -111,9 +112,9 @@
         {% include 'product-loop' %}
       {% endfor %}
   ```
-    * Cycle 
+  * Cycle 
     ```{% cycle '','','','last' %}```
-    ![](images/cycle.png)
+  ![](images/cycle.png)
     ```
     <div class="left {% cycle '','','','last' %}">
       <div>
