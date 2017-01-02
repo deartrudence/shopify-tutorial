@@ -17,10 +17,10 @@
 * Brief intro to Liquid
 * Bring in Header/Content
   * Bring in stylesheets
-    1. ```<meta name="viewport" content="width=device-width, initial-scale=1">```
-    2. ```<title>{{ page_title}} - {{ shop.name }}</title>```
-    3. ```{{ "normalize.css" | asset_url | stylesheet_tag }}```
-    4. ```{{ 'styles.scss' | asset_url | stylesheet_tag }}```
+    ```<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page_title}} - {{ shop.name }}</title>
+    {{ "normalize.css" | asset_url | stylesheet_tag }}
+    {{ 'styles.scss' | asset_url | stylesheet_tag }}```
     5. Wrap p tags around words ```<p> The main page :) </p>``` to make sure styles took
   * Bring in JavaScript
     1. ```{{ "option_selection.js" | shopify_asset_url | script_tag }}```
