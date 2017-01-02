@@ -113,8 +113,11 @@
       {% endfor %}
   ```
   * Cycle 
+  
   ![](images/cycle.png)
+
     `{% cycle '','','','last' %}`
+
     ```
     <div class="left {% cycle '','','','last' %}">
       <div>
