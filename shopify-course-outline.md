@@ -2,6 +2,12 @@
 
 
 ## The Setup
+things you need
+  github account
+  shopify partner account
+  plain text editor
+  themekit 
+
 * Download starter theme
 * Setup development store
 * Setup Starter theme in development store
@@ -14,7 +20,7 @@
   * Csv upload
 
 ## 02 - The Layout - Theme.liquid
-* Brief intro to Liquid
+* **Brief intro to Liquid**
 
   Liquid is the templating language used in Shopify theme development.  It allows you to add programming logic to your theme.  It also gives you access to Shopify 'objects', things like products and blog posts that you'll want to access that are stored in your Shopify store.
 
@@ -25,7 +31,7 @@
   We'll be showing examples of what can be done with liquid as we go through the tutorials.  But for further info you can look at our **Liquid Quick Ref**
 
 * Bring in Header/Content
-  * Bring in stylesheets (and meta tag )
+  * **Bring in stylesheets (and meta tag )**
     1. ```<meta name="viewport" content="width=device-width, initial-scale=1">```
     2. ```<title>{{ page_title}} - {{ shop.name }}</title>```
     3. ```{{ "normalize.css" | asset_url | stylesheet_tag }}```
@@ -36,7 +42,7 @@
     2. ```{{ "shopify_common.js" | shopify_asset_url | script_tag }}```
     3. ```{{ "customer_area.js"  | shopify_asset_url | script_tag }}```
     4. ```{{ "//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" | script_tag }}```
-  * Bring in the Content
+  * **Bring in the Content**
     * ```{{ content_for_layout}}```
       ```
       <div class="container">
@@ -44,12 +50,12 @@
       </div>
       ```
     * Added blue box so you can see container
-* Shop title
+* **Shop title**
   * Our first use of Liquid templating
     * ```<h1><a href="/">{{ shop.name }}</a></h1>```
   * Bringing in an image with the asset_url
   * ```<img src="{{'logo.svg' | asset_url}}" class="logo" alt="pineapple">```
-* Main Menu  
+* **Main Menu**  
   * Linklist for main menu
     1. Go to online store/navigation, you’ll see menus.
     2. Click edit on the menu to find out the handle
@@ -86,11 +92,18 @@
   * In the homepage page of the in the shopify panel and the bottom of the page in the Search engine listing preview section, the ‘handle’ of the page is the last bit of the url
   ![](images/search-engine-preview.png)
 
-  * Front page
+  * **Front page**
     * Assign page ```{% assign page = pages.frontpage %}```
-    * ```<h2>{{ page.title }}</h2>```
+    * Assign home_page_collection ```{% assign home_page_collection = collections.frontpage %} ```
+    * Bring in the wrapper into the index template ``` <main class="home_page">
+    <div class="wrapper">```
+    * Bring the main toggle into the index inside the wrapper ``` <a href="#" class="main--toggle"><span></span></a>```
+    * ```<p>{{ page.title }}</p>```
     * ```<p>{{ page.content }}</p>```
-  * About page
+    * Add google font
+      * Google font 'Quicksand' <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  
+  * **About page**
     * Create `templates/page.about.liquid`
     * Go to about page
     * Must save for ‘templates’ dropdown to appear
@@ -112,8 +125,8 @@
         {% include 'product-loop' %}
       {% endfor %}
   ```
-  * Cycle 
-  
+  * **Cycle** 
+
   ![](images/cycle.png)
 
     `{% cycle '','','','last' %}`
