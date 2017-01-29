@@ -110,6 +110,9 @@ things you need
     {% for collection in collections %}
       {% unless collection.handle == 'frontpage' %}
     ```
+    * Add a link around the image and title ```<a href="{{collection.url}}">```
+      - We'll only see 'the collection page :)' because we haven't done that yet.
+      - But note the url : `https://pineapple-18.myshopify.com/collections/multiple-pineapples`
   
   * **About page**
     * Create `templates/page.about.liquid`
