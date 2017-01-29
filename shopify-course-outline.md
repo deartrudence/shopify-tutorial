@@ -122,6 +122,7 @@ things you need
     * Select page.about
     ```
     {% assign page = pages.about-us %}
+    ```
     * Bring in the wrapper into the page.about template ``` <main class="about">
     <div class="wrapper">```
     * Bring the main toggle into the index inside the wrapper ``` <a href="#" class="main--toggle"><span></span></a>```
