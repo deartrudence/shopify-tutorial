@@ -101,19 +101,32 @@ things you need
     * ```<p>{{ page.title }}</p>```
     * ```<p>{{ page.content }}</p>```
     * Add google font
-      * Google font 'Quicksand' <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+      * Google font 'Quicksand' ```<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">```
+
+    * ***Featured Collecton***
+    `products -> collectons`
+    * set up two collections ('single pineapples', 'multiple pinapples') -- add collection images
+    * Loop through collections and unless it's the 'frontpage' collection show it 
+    ```{% for collection in collections %}
+        {% unless collection.handle == 'frontpage' %}```
   
   * **About page**
     * Create `templates/page.about.liquid`
     * Go to about page
     * Must save for ‘templates’ dropdown to appear
+    * Add an image in the wysiwyg
     * Select page.about
     ```
     {% assign page = pages.about-us %}
+    * Bring in the wrapper into the page.about template ``` <main class="about">
+    <div class="wrapper">```
+    * Bring the main toggle into the index inside the wrapper ``` <a href="#" class="main--toggle"><span></span></a>```
     <h2>{{ page.title }}</h2>
     <p>{{ page.content }}</p>
      ```
     * Add above to page.about.liquid
+    * Go to admin panel - navigation and add 'About Us' to the main menu
+
 
 
 ## 04 - Snippets - product-loop.liquid
