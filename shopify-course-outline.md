@@ -96,14 +96,9 @@ things you need
     * Add google font in 'layout/theme.liquid'
       * Google font 'Quicksand' ```<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">```
     * Assign page ```{% assign page = pages.frontpage %}```
-    * Bring in the wrapper into the index template ``` 
-    * <main class="home_page">
-    <div class="wrapper">
-    ```
-    * Bring the main toggle into the index inside the wrapper 
-    ``` 
-    <a href="#" class="main--toggle"><span></span></a>
-    ```
+    * Bring in the wrapper into the index template ``` <main class="home_page">
+    <div class="wrapper">```
+    * Bring the main toggle into the index inside the wrapper ``` <a href="#" class="main--toggle"><span></span></a>```
     * ```<p>{{ page.title }}</p>```
     * ```<p>{{ page.content }}</p>```
 
@@ -124,16 +119,9 @@ things you need
     * Select page.about
     ```
     {% assign page = pages.about-us %}
-    * Bring in the wrapper into the page.about template 
-    ``` 
-    <main class="about">
-    <div class="wrapper">
-    ```
-    * Bring the main toggle into the index inside the wrapper 
-    ``` 
-    <a href="#" class="main--toggle"><span></span></a>
-    ```
-    ```
+    * Bring in the wrapper into the page.about template ``` <main class="about">
+    <div class="wrapper">```
+    * Bring the main toggle into the index inside the wrapper ``` <a href="#" class="main--toggle"><span></span></a>```
     <h2>{{ page.title }}</h2>
     <p>{{ page.content }}</p>
      ```
