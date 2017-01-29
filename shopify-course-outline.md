@@ -126,9 +126,8 @@ things you need
     * Bring in the wrapper into the page.about template ``` <main class="about">
     <div class="wrapper">```
     * Bring the main toggle into the index inside the wrapper ``` <a href="#" class="main--toggle"><span></span></a>```
-    <h2>{{ page.title }}</h2>
-    <p>{{ page.content }}</p>
-     ```
+    ```<h2>{{ page.title }}</h2>
+    <p>{{ page.content }}</p>```
     * Add above to page.about.liquid
     * Go to admin panel - navigation and add 'About Us' to the main menu
 
