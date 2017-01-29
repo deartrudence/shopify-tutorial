@@ -104,11 +104,12 @@ things you need
       * Google font 'Quicksand' ```<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">```
 
     * ***Featured Collecton***
-    `products -> collectons`
+      `products -> collections`
     * set up two collections ('single pineapples', 'multiple pinapples') -- add collection images
     * Loop through collections and unless it's the 'frontpage' collection show it 
     ```{% for collection in collections %}
-        {% unless collection.handle == 'frontpage' %}```
+        {% unless collection.handle == 'frontpage' %}
+    ```
   
   * **About page**
     * Create `templates/page.about.liquid`
