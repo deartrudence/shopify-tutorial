@@ -93,22 +93,27 @@ things you need
   ![](images/search-engine-preview.png)
 
   * **Front page**
+    * Add google font in 'layout/theme.liquid'
+      * Google font 'Quicksand' ```<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">```
     * Assign page ```{% assign page = pages.frontpage %}```
-    * Assign home_page_collection ```{% assign home_page_collection = collections.frontpage %} ```
-    * Bring in the wrapper into the index template ``` <main class="home_page">
-    <div class="wrapper">```
-    * Bring the main toggle into the index inside the wrapper ``` <a href="#" class="main--toggle"><span></span></a>```
+    * Bring in the wrapper into the index template ``` 
+    * <main class="home_page">
+    <div class="wrapper">
+    ```
+    * Bring the main toggle into the index inside the wrapper 
+    ``` 
+    <a href="#" class="main--toggle"><span></span></a>
+    ```
     * ```<p>{{ page.title }}</p>```
     * ```<p>{{ page.content }}</p>```
-    * Add google font
-      * Google font 'Quicksand' ```<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">```
 
     * ***Featured Collecton***
       `products -> collections`
     * set up two collections ('single pineapples', 'multiple pinapples') -- add collection images
     * Loop through collections and unless it's the 'frontpage' collection show it 
-    ```{% for collection in collections %}
-        {% unless collection.handle == 'frontpage' %}
+    ```
+    {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' %}
     ```
   
   * **About page**
@@ -119,9 +124,16 @@ things you need
     * Select page.about
     ```
     {% assign page = pages.about-us %}
-    * Bring in the wrapper into the page.about template ``` <main class="about">
-    <div class="wrapper">```
-    * Bring the main toggle into the index inside the wrapper ``` <a href="#" class="main--toggle"><span></span></a>```
+    * Bring in the wrapper into the page.about template 
+    ``` 
+    <main class="about">
+    <div class="wrapper">
+    ```
+    * Bring the main toggle into the index inside the wrapper 
+    ``` 
+    <a href="#" class="main--toggle"><span></span></a>
+    ```
+    ```
     <h2>{{ page.title }}</h2>
     <p>{{ page.content }}</p>
      ```
